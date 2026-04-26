@@ -21,8 +21,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-RAZORPAY_KEY_ID = os.getenv("RAZORPAY_KEY_ID", "rzp_test_Sf2YjSGmPfl2H0")
-RAZORPAY_KEY_SECRET = os.getenv("RAZORPAY_KEY_SECRET", "iytY9Kziycer3Ne7POV7O0af")
+RAZORPAY_KEY_ID = os.getenv("RAZORPAY_KEY_ID", "rzp_live_Si1hNjaLHbFI11")
+RAZORPAY_KEY_SECRET = os.getenv("RAZORPAY_KEY_SECRET", "MNVbzfIB9oPv9TbXl89VSds9")
 razorpay_client = razorpay.Client(auth=(RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET))
 
 # Configuration
