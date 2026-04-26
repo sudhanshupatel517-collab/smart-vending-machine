@@ -1,4 +1,4 @@
-const BACKEND_URL = 'https://api.yourdomain.com'; // REPLACE WITH YOUR PERSISTENT CUSTOM HOSTNAME
+const BACKEND_URL = ''; // Use relative path for same-domain deployment
 
 document.addEventListener('DOMContentLoaded', () => {
     const productCards = document.querySelectorAll('.product-card');
