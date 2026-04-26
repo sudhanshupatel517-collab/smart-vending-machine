@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Vending Machine</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="top-nav">
+        <div class="brand">
+            <span class="icon">⚡</span>
+            <h1>SmartVending</h1>
+        </div>
+        <p class="subtitle">Quick & automated delivery</p>
+    </header>
+
+    <main class="container">
+        <h2 class="section-title">Fresh Snacks</h2>
+        <div class="products-grid" id="products-grid">
+            
+            <div class="product-card" data-id="chips" data-name="Chips" data-price="10" data-icon="🥔">
+                <div class="product-image">🥔</div>
+                <div class="product-details">
+                    <h3 class="product-name">Chips</h3>
+                    <div class="price-action">
+                        <span class="price">₹10</span>
+                        <div class="action-btn-container">
+                            <button class="add-btn">ADD</button>
+                            <div class="qty-control hidden">
+                                <button class="minus-btn">−</button>
+                                <span class="qty-text">1</span>
+                                <button class="plus-btn">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card" data-id="biscuit" data-name="Biscuits" data-price="10" data-icon="🍪">
+                <div class="product-image">🍪</div>
+                <div class="product-details">
+                    <h3 class="product-name">Biscuits</h3>
+                    <div class="price-action">
+                        <span class="price">₹10</span>
+                        <div class="action-btn-container">
+                            <button class="add-btn">ADD</button>
+                            <div class="qty-control hidden">
+                                <button class="minus-btn">−</button>
+                                <span class="qty-text">1</span>
+                                <button class="plus-btn">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="soda" data-name="Soda" data-price="40" data-icon="🥤">
+                <div class="product-image">🥤</div>
+                <div class="product-details">
+                    <h3 class="product-name">Soda</h3>
+                    <div class="price-action">
+                        <span class="price">₹40</span>
+                        <div class="action-btn-container">
+                            <button class="add-btn">ADD</button>
+                            <div class="qty-control hidden">
+                                <button class="minus-btn">−</button>
+                                <span class="qty-text">1</span>
+                                <button class="plus-btn">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="chocolate" data-name="Chocolate" data-price="20" data-icon="🍫">
+                <div class="product-image">🍫</div>
+                <div class="product-details">
+                    <h3 class="product-name">Chocolate</h3>
+                    <div class="price-action">
+                        <span class="price">₹20</span>
+                        <div class="action-btn-container">
+                            <button class="add-btn">ADD</button>
+                            <div class="qty-control hidden">
+                                <button class="minus-btn">−</button>
+                                <span class="qty-text">1</span>
+                                <button class="plus-btn">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <footer class="compliance-footer">
+            <div class="compliance-links">
+                <a href="/about" target="_blank">About Us</a>
+                <a href="/contact" target="_blank">Contact Us</a>
+                <a href="/checkout-flow" target="_blank">Checkout Flow</a>
+                <a href="/privacy-policy" target="_blank">Privacy Policy</a>
+                <a href="/terms" target="_blank">Terms & Conditions</a>
+                <a href="/refund-policy" target="_blank">Refund Policy</a>
+            </div>
+            <p>&copy; 2026 College Project</p>
+        </footer>
+    </main>
+
+    <!-- Sticky Cart Bar -->
+    <div class="cart-bar hidden" id="cart-bar">
+        <div class="cart-summary">
+            <div class="cart-icon">🛍️</div>
+            <div class="cart-text">
+                <span id="cart-total-items">0 Items</span>
+                <p class="cart-total-price" id="cart-total-price">₹0</p>
+            </div>
+        </div>
+        <button class="view-cart-btn" id="btn-view-cart">
+            View Cart <span class="arr">▲</span>
+        </button>
+    </div>
+
+    <!-- Slide-up Cart Panel -->
+    <div class="cart-panel-overlay hidden" id="cart-panel-overlay">
+        <div class="cart-panel" id="cart-panel">
+            <div class="cart-panel-header">
+                <h2>Your Cart</h2>
+                <button class="close-cart-btn" id="btn-close-cart">✖</button>
+            </div>
+            
+            <div class="cart-items-list" id="cart-items-list">
+                <!-- Dynamically injected via JS -->
+            </div>
+            
+            <div class="cart-panel-footer">
+                <div class="cart-total-row">
+                    <span>Total Amount</span>
+                    <span id="panel-total-price">₹0</span>
+                </div>
+                
+                <div class="compliance-checkbox-container" style="margin-top: 0; margin-bottom: 15px;">
+                    <input type="checkbox" id="terms-checkbox" required checked>
+                    <label for="terms-checkbox">
+                        I agree to the <a href="/privacy-policy" target="_blank">Privacy Policy</a> & <a href="/terms" target="_blank">Terms</a>
+                    </label>
+                </div>
+                
+                <button class="proceed-btn" id="btn-checkout" style="width: 100%; justify-content: center;">
+                    Proceed to Pay <span id="btn-total">₹0</span> <span class="arr" style="margin-left: 8px;">➔</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">Item added to cart</div>
+
+    <!-- Overlay -->
+    <div id="state-overlay" class="overlay hidden">
+        <div class="overlay-content">
+            <div id="overlay-icon" class="overlay-icon"></div>
+            <h2 id="overlay-title">Processing...</h2>
+            <p id="overlay-subtitle">Please wait</p>
+        </div>
+    </div>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

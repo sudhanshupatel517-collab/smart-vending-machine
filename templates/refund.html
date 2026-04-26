@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refund Policy - Smart Vending Machine</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="info-header">
+        <a href="/" class="btn-back">←</a>
+        <h1>Refund & Cancellation Policy</h1>
+    </header>
+
+    <main class="info-container">
+        <div class="info-card">
+            <h2>❌ No Cancellation</h2>
+            <p>Orders cannot be cancelled once payment is completed. Please verify your selected products before proceeding to pay.</p>
+        </div>
+
+        <div class="info-card">
+            <h2>💰 Refund Eligibility</h2>
+            <ul>
+                <li>Payment successful but product not dispensed</li>
+                <li>Machine malfunction or power failure during dispense</li>
+                <li>Duplicate payment for the same transaction</li>
+            </ul>
+        </div>
+
+        <div class="info-card">
+            <h2>🔄 Refund Process</h2>
+            <p>Users must contact support within 24 hours of the transaction, providing the transaction ID and order details.</p>
+        </div>
+
+        <div class="info-card">
+            <h2>⏳ Refund Timeline</h2>
+            <p>Refunds will be processed within 5–7 business days.</p>
+        </div>
+
+        <div class="info-card">
+            <h2>💳 Mode of Refund</h2>
+            <p>The refund amount will be issued directly to the original payment method used.</p>
+        </div>
+
+        <div class="info-card">
+            <h2>⚠ Important Notes</h2>
+            <p>Product delivery is subject to the vending machine's mechanical functionality and network conditions at the time of purchase.</p>
+        </div>
+
+        <div class="info-card">
+            <h2>📞 Contact Support</h2>
+            <div class="contact-item">
+                <div class="contact-icon">📧</div>
+                <div class="contact-text">
+                    <span class="contact-label">Email Us</span>
+                    <a href="mailto:sudhanshupatel517@gmail.com" class="contact-value">sudhanshupatel517@gmail.com</a>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📞</div>
+                <div class="contact-text">
+                    <span class="contact-label">Call Us</span>
+                    <span class="contact-value">8889715939</span>
+                </div>
+            </div>
+        </div>
+
+        <footer class="compliance-footer">
+            <div class="compliance-links">
+                <a href="/about">About Us</a>
+                <a href="/contact">Contact Us</a>
+                <a href="/checkout-flow">Checkout Flow</a>
+                <a href="/privacy-policy">Privacy Policy</a>
+                <a href="/terms">Terms & Conditions</a>
+                <a href="/refund-policy">Refund Policy</a>
+            </div>
+            <p>&copy; 2026 College Project</p>
+        </footer>
+    </main>
+</body>
+</html>
