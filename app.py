@@ -20,8 +20,8 @@ ALLOWED_ORIGIN = os.getenv("ALLOWED_ORIGIN", "*")
 CORS(app, resources={r"/api/*": {"origins": ALLOWED_ORIGIN}})
 
 # Razorpay Configuration
-RAZORPAY_KEY_ID = os.getenv("RAZORPAY_KEY_ID")
-RAZORPAY_KEY_SECRET = os.getenv("RAZORPAY_KEY_SECRET")
+RAZORPAY_KEY_ID = os.getenv("RAZORPAY_KEY_ID", "rzp_live_Si1hNjaLHbFI11")
+RAZORPAY_KEY_SECRET = os.getenv("RAZORPAY_KEY_SECRET", "MNVbzfIB9oPv9TbXl89VSds9")
 razorpay_client = razorpay.Client(auth=(RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET))
 
 # Hardware Configuration
@@ -36,8 +36,9 @@ GPIO_AVAILABLE = False
 motors = {}
 dispense_lock = threading.Lock() # Global lock to prevent concurrent motor triggers
 
+import tempfile
 # Database Initialization (SQLite for Idempotency)
-DB_PATH = 'vending.db'
+DB_PATH = os.path.join(tempfile.gettempdir(), 'vending.db')
 def init_db():
     conn = sqlite3.connect(DB_PATH)
     conn.execute('CREATE TABLE IF NOT EXISTS payments (payment_id TEXT PRIMARY KEY, timestamp DATETIME DEFAULT CURRENT_TIMESTAMP)')
