@@ -81,11 +81,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    btnViewCart.onclick = () => cartPanelOverlay.classList.remove('hidden');
+    btnCloseCart.onclick = () => cartPanelOverlay.classList.add('hidden');
+
     productCards.forEach(card => {
+        const id = card.dataset.id;
         card.querySelector('.add-btn').onclick = () => {
             const d = card.dataset; cart[d.id] = { name: d.name, price: parseInt(d.price), icon: d.icon, qty: 1 };
             updateCartUI(); updateGrid();
         };
+        card.querySelector('.plus-btn').onclick = () => adjust(id, 1);
+        card.querySelector('.minus-btn').onclick = () => adjust(id, -1);
     });
 
     btnCheckout.onclick = async () => {
