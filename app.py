@@ -6,7 +6,7 @@ import sys
 import sqlite3
 import threading
 import razorpay
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
 from dotenv import load_dotenv
 
@@ -169,6 +169,34 @@ def verify_payment():
     finally:
         dispense_lock.release()
         conn.close()
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/privacy-policy')
+def privacy_policy():
+    return render_template('privacy.html')
+
+@app.route('/refund-policy')
+def refund_policy():
+    return render_template('refund.html')
+
+@app.route('/terms')
+def terms():
+    return render_template('terms.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+@app.route('/checkout-flow')
+def checkout_flow():
+    return render_template('checkout-flow.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5050)
